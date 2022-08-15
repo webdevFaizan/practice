@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="/css/home.css">
+<!-- If we direcly add this file to the layout.ejs file, this will be added just like the html line of code-->
+<!-- But we want this line to be added below the title section of the head tag of the layout.ejs file -->
+<!-- <h1>Welcome to Jinx, an end to end encrypted Social Media for you.</h1>     -->
+<!-- The title is a variable and is being sent by the home_controller.js file 
+    and it will be called upon being accessing the routers -->
+
+<section>    
+    <div class="textbox">
+        <% if(locals.user){ %>
+        <h3>What is on your mind?</h3>
+        <form action="/sendposttodb" id="new-post-form" method="post">
+            <textarea name="content" cols="60" rows="6" placeholder="Type here..."></textarea>
+            <input type="hidden" name="postOwnerName" value="<%=locals.user.name%>">
+            <input type="submit" value="Post">
+        </form>
+        <%}else{%>
+            <p>Please, sign In to Post something..</p>
+        <%}%>
+    </div>
+</section>
+
+<div class="mainPageContainer">
+    <div id="posts-list-container" class="listOfPosts">
+        <%if(posts){%>
+            <%for(post of posts){%>
+                <!-- This for loop requirs us to have for of loop. If we have for(let i=0; i<posts.length; i++) then this would not run for partials of view since the value of i is not transferred to other partials. Only for of loop could transfer and partials is very important especially in a case when we want to break our view.ejs file into different components. -->
+                <%-include('_post')-%>
+            <%}%>
+        <%}%>
+    </div>
+    <%if(locals.user){%>
+        <div class="listOfPeople">
+            <h3>Lists of People on Jinx</h3>
+            <%if(locals.user){%>
+                <%for(u of all_users){%>
+                    <%if(u.id != locals.user.id){%>
+                    <a href="/user/data/<%=u.id%>"><%=u.name%></a>
+                    <%}%>
+                <%}%>
+            <%}%>
+        </div>
+    <%}%>
+</div>
+
+
+
+
+
+<script src="/js/home_post_comments.js" defer ></script>
+<script src="/js/home_posts.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- I am still confused why this file is not outputting on the node.js console. This is because the ejs file is the browser side file and any script tag here will be executed on the browser. Be it any kind of script tag. Manually typed script tag or cdn downloaded script tag.
+Second thing, why this do we not need to accomodate the whole address of the file. This is because the assets folder location is already mapped to the assets folder. Therefore we do not need to add the "../assets/js/home_posts.js" -->
+
+<script src="js/toggle_likes.js"></script>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self = this;
+        // console.log(self);
+        let toggleLike = new ToggleLike(self);
+    });
+</script>

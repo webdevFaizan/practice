@@ -1,0 +1,17 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  text-align: center;
+  background-color: #292929;
+  color: #eaff2d; }
+  body a {
+    color: #949494; }
+
+.middle {
+  min-height: 100vh; }
+
+header {
+  color: gainsboro; }
+
+footer {
+  color: #7c7cff; }

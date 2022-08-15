@@ -1,0 +1,25 @@
+header {
+  background-color: #ceff7f;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  header h1 {
+    margin: 0;
+    padding-left: 15px;
+    color: green;
+    font-size: xx-large; }
+    header h1 a {
+      color: black;
+      text-decoration: none; }
+
+ul {
+  display: flex;
+  list-style: none; }
+  ul li {
+    padding-right: 15px; }
+    ul li a {
+      text-decoration: none;
+      transition: all 0.2s ease-in-out; }
+    ul li a:hover {
+      color: violet; }

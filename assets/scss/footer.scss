@@ -1,0 +1,15 @@
+footer{
+    background-color: aquamarine;
+}
+
+.foot{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    p{
+        padding: 12px;
+        color: red;
+        font-weight: 800;
+    }
+}

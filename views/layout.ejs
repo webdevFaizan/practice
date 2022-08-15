@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jinx | <%= title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <!-- This external reference of the css file is different than the traditional css file. In the .docx file I have added a stack overflow explaination  -->
+    <!-- Also this single css file will be helpful in defining the common layouts all the webpages, since layout.ejs is the common html file. But if we want to add the  -->
+    <!-- Styles to specific ejs files, then we will have to add it in those separate files itself. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.js"></script>
+    <!-- Intially noty required jquery, but now it does just fine. This simply means we could write the script tag of jquery.min.js below the noty.js cdn link. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <%-style%>      
+    <!-- This style is a variable and it will add the value from the style tag that would be added from different files -->
+</head>
+<body>
+    <%-include('_header')%>   
+    
+    <!-- Coming from express middle ware in main index.js file , we will first include this header file. This is a common file that will be present in all the webpages.-->
+    <div class="middle">
+        <%-body%>
+    </div>
+    <!-- This is a variable name called body, it will be replaced with the different files in the controller folder that will render the view. -->
+    <!-- In the controllers folder, home_controller.js will call home.ejs to render but instead the middle ware will call this file, with body variable -->
+    <!-- being replaced by home.ejs content. Same is the case when some route try to call the user_controller.js file, layout.ejs will be rendered -->
+    <!-- while replacing the variable 'body' with user_profile.ejs -->
+    <%-include('_footer')%>
+    <%-script%>
+    <!-- I was trying to add logic in the text field of Noty object adding name of the user that is either loggin in or logging out, but a better option would be send the name in the controller itself, this is because the purpose of ejs files is not to have logic, but to display the content. This is why we finally added the logic to the middleware before ever sending to the ejs. This also solved a purpose, earlier I was not able to display the name of person while he has logged out, this is simply because just after clicking logout, the session expires and the locals.user gets deleted, and this is why locals.user.name doesnot exist, but what if we add the name of the user before the session being destroyed. This this would work. -->
+    <script>        
+        <%-include('../assets/js/noty.js')%>
+    </script>
+</body>
+</html>

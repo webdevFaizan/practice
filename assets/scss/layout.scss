@@ -1,0 +1,23 @@
+//This is the layout.scss file and this will be used to render the css file, this is just like the middleware for css. We call this file and the rendering of the corresponding css file occurs.
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    text-align: center;
+    background-color: rgb(41, 41, 41);
+    color: rgb(234, 255, 45);
+    a{
+        color : rgb(148, 148, 148);
+    }
+}
+
+.middle{
+    min-height: 100vh;
+}
+
+header{
+    color : gainsboro
+}
+
+footer{
+    color : rgb(124, 124, 255)
+}

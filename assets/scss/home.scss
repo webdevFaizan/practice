@@ -1,0 +1,40 @@
+.allPosts{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    // border: 2px solid red;
+    .postDetails{
+        display: flex;
+        flex-direction: row;
+        min-width: 500px;
+        justify-content: center;
+        /* padding: 20px; */
+        .postOwnerName{
+            padding-right: 20px;
+        }
+    }
+}
+
+.mainPageContainer{
+    display: flex;
+    // flex-direction: row;
+    // border: 2px solid lightblue;
+    .listOfPosts{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        // text-align: left;
+        border-top: 2px solid rgb(72, 199, 72);
+        // margin: ;
+    }
+    .listOfPeople{
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        padding: 20px;
+        border-left: 2px solid red;
+        border-top: 2px solid yellow;
+    }
+}

@@ -1,0 +1,9 @@
+<img src="<%=user.avatar%>" alt="Please select your Avatar." width="200">
+<!-- Although we have added the location of avatar here, it consist of the relative path name, since when we deploy the website to the server, the location of this source folder will always be relative, the reason for this is simple. But due to this we might not be able to access the image directly. We rather need to access the image using an indirect way-->
+
+<h1>Welcome back, <%= user.name%></h1>
+<p><%= user.email%></p>
+<p><%= user.createdAt%></p>
+
+<h2>Want to update your profile?</h2>
+<a href="/user/update">Update</a>

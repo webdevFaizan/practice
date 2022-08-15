@@ -1,0 +1,8 @@
+<img src="<%=user.avatar%>" alt="Please select your Avatar." width="200">
+
+<form action="/user/submitupdateform" enctype="multipart/form-data" method="post">
+    <input type="text" name="name" value="<%=locals.user.name%>"placeholder="New Name" required>
+    <input type="text" name="email" value="<%=locals.user.email%>"placeholder="New Email" required>
+    <input type="file" name="avatar" placeholder="Profile Picture">
+    <input type="submit" value="Update">
+</form>
